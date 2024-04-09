@@ -53,7 +53,7 @@ fn get_gpu_devices_internal() -> Vec<slice_boxed<u8>> {
 /// Returns an array of strings containing the device names that can be used.
 #[ffi_export]
 pub fn get_gpu_devices() -> repr_c::Box<GpuDeviceResponse> {
-    catch_panic_response("get_gpu_devices", || {
+    catch_panic_response("get_gpu_devices_vmx", || {
         let devices = get_gpu_devices_internal();
         Ok(devices.into_boxed_slice().into())
     })
