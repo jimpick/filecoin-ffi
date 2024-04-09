@@ -195,6 +195,7 @@ where
 {
     catch_panic_response_raw_no_log(|| {
         init_log();
+        log::info!("vmx: this log message is just to make sure we are on the custom version");
         log::debug!("{}: start", name);
         let res = callback();
         log::debug!("{}: end", name);
